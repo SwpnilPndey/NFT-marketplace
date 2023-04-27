@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint NFT</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="../public/styles.css">
+    <script src="../public/mintnft.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+
+        <ul>
+            <li> <a href="/">Home</a></li>
+            <li> <a href="/mintnft">Mint NFT</a></li>
+            <li> <a href="/buynft">Buy NFT</a></li>
+            <li> <a href="/mynft">My NFT</a></li>
+            <li><button onclick="connectmetamask()" id="metamask-mint">Connect Metamask</button></li>            
+        </ul>
+    </div>
+
+    <div class="mintFT-container">
+        <form class="form-data">
+            <label>Enter name of NFT</label>
+            <input type="text" id="form-NFTname">
+            <label>Enter symbol of NFT</label>
+            <input type="text" id="form-NFTsymbol">
+            <label>Enter price of NFT</label>
+            <input type="number" id="form-NFTprice">
+            <label>Upload NFT</label>
+            <input type="file" name="file" id="form-NFTfile">
+        </form>
+        <div id="submit-button">
+            <button onclick="mintNFT()" id="button-mint-NFT">Mint and List NFT</button>
+        </div>
+        
+
+    </div>
+
+
+    
+</body>
+</html>

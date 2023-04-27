@@ -1,0 +1,156 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    font-size: 25px;
+}
+
+.navbar>ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar>ul>li {
+    margin: 0 10px;
+}
+
+.navbar>ul>li>a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.navbar>ul>li>button {
+    color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color:red;
+  font-size: 18px;
+}
+
+.navbar>ul>li>a:hover , .navbar>ul>li>button:hover {
+    background-color: #555;
+}
+
+#show-NFTs {
+    
+    font-size: 20px;
+    background-color: rgb(63, 65, 199);
+    color: white;
+    margin-bottom: 0px;
+}
+
+.nft-area {
+    
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    height:auto;
+    width:90vw;
+}
+
+
+.mintFT-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 30px;
+}
+
+.buyNFT-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border: solid 2px black;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+
+.mintFT-container input {
+    margin: 20px;
+    font-size: 25px;
+
+}
+
+.buyNFT-container input {
+    margin: 20px;
+    font-size: 25px;
+
+}
+
+.mintFT-container textarea {
+    margin: 20px;
+    font-size: 25px;
+
+}
+
+
+.mintFT-container input[type="file"] {
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+#button-mint-NFT {
+    font-size: 50px;
+    border-radius: 60px;
+    background-color: rgb(51 63 201);
+    color: white;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+#button-buy-NFT {
+    font-size: 50px;
+    border-radius: 60px;
+    background-color: rgb(51 63 201);
+    color: white;
+    margin-left: -50px;
+    padding-left: -40px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.view-market {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+
+#image-card {
+    display: flex;
+    flex-direction: column;
+    border: solid 2px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.view-market {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

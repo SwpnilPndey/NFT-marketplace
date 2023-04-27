@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My NFT</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="../public/styles.css">
+    <script src="../public/mynft.js"></script>
+</head>
+<body>
+    <div class="navbar">
+
+        <ul>
+            <li> <a href="/">Home</a></li>
+            <li> <a href="/mintnft">Mint NFT</a></li>
+            <li> <a href="/buynft">Buy NFT</a></li>
+            <li> <a href="/mynft">My NFT</a></li>
+            <li><button onclick="connectmetamask()" id="metamask-mynft">Connect Metamask</button></li>            
+        </ul>
+    </div>
+    <div class="view-market">
+        <h1>Welcome to your NFT area</h1>
+
+        <button onclick="showmyNFTs()" id="show-my-NFTs">Show my NFTs</button>
+        
+        <div class="my-nft-area">
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

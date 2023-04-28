@@ -62,14 +62,17 @@ const showNFTs=async()=> {
     let parentdiv=document.querySelector(".nft-area");
     let childdiv = document.createElement("div");
     childdiv.setAttribute("id","image-card");
+    let grandchildiv1=document.createElement("div");
     let grandchildimg=document.createElement("img");
-    let grandchildiv=document.createElement("div");
-    grandchildiv.innerHTML=myNFT.price;
+    let grandchildiv2=document.createElement("div");
+    grandchildiv1.innerHTML="Token ID - "+ myNFT.tokenID;
+    grandchildiv2.innerHTML=myNFT.price+" wei";
     grandchildimg.setAttribute("src",myNFT.imageURI);
     console.log(myNFT);
     console.log(myNFT.imageURI);
+    childdiv.appendChild(grandchildiv1);
     childdiv.appendChild(grandchildimg);
-    childdiv.appendChild(grandchildiv);
+    childdiv.appendChild(grandchildiv2);
     parentdiv.appendChild(childdiv);               
     }
 

@@ -53,15 +53,16 @@ const showmyNFTs=async()=> {
 
     let myitemcount=await window.contract.methods.getNFTBalance(account).call();
 
-
     console.log(myitemcount);
-    
-    for(i=0;i<myitemcount;i++) {
+
     let myNFTs=await window.contract.methods.getNFTs(account).call();
 
     console.log(myNFTs);
+    
+    for(i=0;i<myitemcount;i++) {
+    let myNFT=myNFTs[i];   
+    console.log(myNFT);
     console.log(myNFTs[i].imageURI);
-
     let parentdiv=document.querySelector(".my-nft-area");
     let childdiv = document.createElement("div");
     childdiv.setAttribute("id","image-card");
@@ -69,10 +70,8 @@ const showmyNFTs=async()=> {
     let grandchildiv=document.createElement("div");
     grandchildiv.innerHTML=myNFTs[i].price;
     console.log(myNFTs[i].price);
-
-    grandchildimg.setAttribute("src",myNFTs[i].imageURI);
+    grandchildimg.setAttribute("src",myNFT.imageURI);
     console.log(myNFTs);
-    console.log(myNFTs[i].imageURI);
     childdiv.appendChild(grandchildimg);
     childdiv.appendChild(grandchildiv);
     parentdiv.appendChild(childdiv);               

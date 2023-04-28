@@ -74,13 +74,15 @@ contract NFTMktplace {
     function getNFTs(address _owner) public view returns(NFT[] memory) {
         uint ownerBalance=getNFTBalance(_owner);
         NFT[] memory ownerNFT=new NFT[](ownerBalance);
-        for(uint i=0;i<ownerBalance;i++) {
-        for (uint j=0;j<itemCount;j++) {
+        uint i=0;
+        for (uint j=0;j<itemCount && i<ownerBalance;j++) {
             if(listedNFTs[j].owner==_owner) {
                 ownerNFT[i]=listedNFTs[j];
+                i++;
             }
+
         }
-        }
+        
         return ownerNFT;
     }
 

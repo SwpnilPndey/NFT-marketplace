@@ -12,8 +12,8 @@ window.onload = function() {
     const account = accounts[0];
     localStorage.setItem("account", account);
     let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
-    document.getElementById("metamask").innerHTML = shortHandAccount;
-    document.getElementById("metamask").style.backgroundColor = "green";
+    document.getElementById("metamask-buynft").innerHTML = shortHandAccount;
+    document.getElementById("metamask-buynft").style.backgroundColor = "green";
     });
 
     
@@ -51,16 +51,20 @@ const buyNFT=async()=> {
     window.web3 = new Web3(window.ethereum);
     window.contract = new window.web3.eth.Contract(ABI, Address);
 
-    let account;
-    const accounts=await ethereum.request({method:"eth_requestAccounts"});
-    account=accounts[0];
+    let account=localStorage.getItem('account');
+
+    console.log(account);
+
     let token=await window.contract.methods.listedNFTs(buyToken).call();
 
     console.log(token);
 
-    let totalPrice=Number(1000)+Number(token.price);
+    let tokenPrice=Number(token.price);
+    let totalPrice=10*(tokenPrice)/100+tokenPrice;
+
     console.log(totalPrice);
+    console.log(tokenPrice);
     await window.contract.methods.buyNFT(buyToken).send({value: totalPrice, from: account});
-    
-    console.log(account);
+    await window.contract.methods.listABoughtNFT(buyToken).send({value:1000, from:account})
+   
 }

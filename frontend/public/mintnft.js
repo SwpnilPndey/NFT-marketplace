@@ -1,7 +1,3 @@
-const pinataApiKey = 'f179f29f1fc975240c11';
-const pinataSecretApiKey = 'd841998c3dd00ea10e47546775c6750ca8b76306d8fd3163b009802d373405ed';
-
-
 window.onload = function() {
     let account=localStorage.getItem("account");
     console.log(account);
@@ -16,8 +12,8 @@ window.onload = function() {
     const account = accounts[0];
     localStorage.setItem("account", account);
     let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
-    document.getElementById("metamask").innerHTML = shortHandAccount;
-    document.getElementById("metamask").style.backgroundColor = "green";
+    document.getElementById("metamask-mint").innerHTML = shortHandAccount;
+    document.getElementById("metamask-mint").style.backgroundColor = "green";
     });
 
 
@@ -51,6 +47,19 @@ const mintNFT = async () => {
     name: file.name
     }));
 
+
+    const pinatajson = await fetch("/pinata.json");
+    const pinataObj=await pinatajson.json();
+
+    const pinataApiKey=pinataObj.pinataApiKey;
+    const pinataSecretApiKey=pinataObj.pinataSecretApiKey;
+
+
+    console.log(pinataApiKey);
+    console.log(pinataSecretApiKey);
+
+  
+
     const response = await fetch('https://api.pinata.cloud/pinning/pinFileToIPFS', {
                             method: 'POST',
                             headers: {
@@ -60,10 +69,14 @@ const mintNFT = async () => {
                             body: formData,
                             });
 
+    
+    
+    
+
     console.log(response);
 
     const imgHash = await response.json();
-    
+
     const tokenURI = "https://gateway.pinata.cloud/ipfs/" + imgHash.IpfsHash;
             
     console.log(imgHash);
@@ -84,9 +97,7 @@ const mintNFT = async () => {
     window.web3 = new Web3(window.ethereum);
     window.contract = new window.web3.eth.Contract(ABI, Address);
 
-    let account;
-    const accounts=await ethereum.request({method:"eth_requestAccounts"});
-    account=accounts[0];
+    let account=localStorage.getItem('account');
     await window.contract.methods.mintAndListNFT(NFTname, NFTsymbol,tokenURI ,NFTprice).send({value: 1000, from: account});
     console.log(account);
 };

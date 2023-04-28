@@ -12,8 +12,8 @@ window.onload = function() {
     const account = accounts[0];
     localStorage.setItem("account", account);
     let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
-    document.getElementById("metamask").innerHTML = shortHandAccount;
-    document.getElementById("metamask").style.backgroundColor = "green";
+    document.getElementById("metamask-mynft").innerHTML = shortHandAccount;
+    document.getElementById("metamask-mynft").style.backgroundColor = "green";
     });
 
 const connectmetamask = async () => {
@@ -33,12 +33,12 @@ const connectmetamask = async () => {
     };
 
 const showmyNFTs=async()=> {
-    let account;
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    account = accounts[0];
-    console.log(account);
+    
+    let account=localStorage.getItem('account');
+
     const contractABI = await fetch("/NFTMktplace.json");
     const abidata = await contractABI.json();
+
     console.log(abidata);
     const contractAddress = await fetch("/Address.json");                        
     const addressdata = await contractAddress.json();
@@ -50,7 +50,7 @@ const showmyNFTs=async()=> {
     window.web3 = new Web3(window.ethereum);
     window.contract = new window.web3.eth.Contract(ABI, Address);
 
-
+    
     let myitemcount=await window.contract.methods.getNFTBalance(account).call();
 
     console.log(myitemcount);

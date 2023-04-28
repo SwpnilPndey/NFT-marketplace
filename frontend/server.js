@@ -1,7 +1,12 @@
 const express=require("express");
 const path=require("path");
 const server=express();
-const port=process.env.PORT||3000;
+const port=process.env.PORT||3001;
+
+require('dotenv').config();
+const pinataApiKey = process.env.pinataApiKey;
+const pinataSecretApiKey = process.env.pinataSecretApiKey;
+
 
 server.use(express.static(__dirname));
 server.use(express.static(__dirname + '/public'));
@@ -42,6 +47,10 @@ server.get("/NFTMktplace.json", (req, res) => {
 
 server.get("/Address.json", (req, res) => {
   res.sendFile("/home/swapnil/Documents/github/NFT-marketplace/backend/build/contracts/Address.json");
+});
+
+server.get("/pinata.json", (req, res) => {
+  res.sendFile(path.join(__dirname+"/public/pinata.json"));
 });
 
 server.listen(port,()=> {

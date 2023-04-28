@@ -35,10 +35,8 @@ const connectmetamask = async () => {
     };
 
 const showNFTs=async()=> {
-    let account;
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    account = accounts[0];
-    console.log(account);
+    let account=localStorage.getItem('account');
+    
     const contractABI = await fetch("/NFTMktplace.json");
     const abidata = await contractABI.json();
     console.log(abidata);

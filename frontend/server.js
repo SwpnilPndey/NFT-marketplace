@@ -42,11 +42,11 @@ server.get("/mynft",(req,res)=> {
 
 
 server.get("/NFTMktplace.json", (req, res) => {
-  res.sendFile("/home/swapnil/Documents/github/NFT-marketplace/backend/build/contracts/NFTMktplace.json");
+  res.sendFile(path.join(__dirname+"/public/NFTMktplace.json"));
 });
 
 server.get("/Address.json", (req, res) => {
-  res.sendFile("/home/swapnil/Documents/github/NFT-marketplace/backend/build/contracts/Address.json");
+  res.sendFile(path.join(__dirname+"/public/Address.json"));
 });
 
 server.get("/pinata.json", (req, res) => {

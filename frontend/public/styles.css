@@ -47,6 +47,14 @@
     margin-bottom: 0px;
 }
 
+#show-my-NFTs {
+    
+    font-size: 20px;
+    background-color: rgb(63, 65, 199);
+    color: white;
+    margin-bottom: 0px;
+}
+
 .nft-area {
     
     display:flex;

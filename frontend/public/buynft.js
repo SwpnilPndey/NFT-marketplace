@@ -1,3 +1,23 @@
+window.onload = function() {
+    let account=localStorage.getItem("account");
+    console.log(account);
+    if(localStorage.getItem("buttonClicked") === "true") {
+    let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
+    document.getElementById("metamask-buynft").innerHTML = shortHandAccount;
+    document.getElementById("metamask-buynft").style.backgroundColor = "green";
+    }
+  }
+
+  window.ethereum.on('accountsChanged', async function(accounts) {
+    const account = accounts[0];
+    localStorage.setItem("account", account);
+    let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
+    document.getElementById("metamask").innerHTML = shortHandAccount;
+    document.getElementById("metamask").style.backgroundColor = "green";
+    });
+
+    
+
 const connectmetamask = async () => {
     let account;
     if (window.ethereum !== "undefined") {
@@ -6,6 +26,8 @@ const connectmetamask = async () => {
         let shortHandAccount = account.slice(0, 4) + "..." + account.slice(-4);
         document.getElementById("metamask-buynft").innerHTML = shortHandAccount;
         document.getElementById("metamask-buynft").style.backgroundColor = "green";
+        localStorage.setItem("buttonClicked", "true");
+        localStorage.setItem("account", account);
     }
     else {
         alert("Kindly install metamask")
